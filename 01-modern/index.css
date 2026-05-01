@@ -1,0 +1,92 @@
+body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            overflow: hidden;
+        }
+
+        /* Left Side: Gradient Background */
+        .preview-sidebar {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-sidebar::before {
+            content: "";
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+        }
+
+        /* Right Side: Phone Container on Desktop */
+        .phone-container {
+            background: #ffffff;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        @media (min-width: 960px) {
+            .phone-container {
+                width: 450px; /* Fixed "Phone" size on desktop */
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Mobile View: Take Full Screen */
+        @media (max-width: 959px) {
+            .phone-container {
+                width: 100%;
+                height: 100vh;
+            }
+            body {
+                overflow: auto;
+            }
+        }
+
+        .mock-app-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .status-bar {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+/* ==== section hero ==== */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.section-hero {
+    height: 100vh;
+    text-align: center;
+}
+
+.section-hero .the-wedding-of {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+}
+/* https://byattari.com/satriawevy/# */
