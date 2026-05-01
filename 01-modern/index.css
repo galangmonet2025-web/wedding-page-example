@@ -1,92 +1,127 @@
 body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            overflow: hidden;
-        }
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
 
-        /* Left Side: Gradient Background */
-        .preview-sidebar {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+/* Left Side: Gradient Background */
+.preview-sidebar {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
 
-        .preview-sidebar::before {
-            content: "";
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 40%;
-            height: 40%;
-            background: rgba(255, 255, 255, 0.1);
-            filter: blur(80px);
-            border-radius: 50%;
-        }
+.preview-sidebar::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(80px);
+    border-radius: 50%;
+}
 
-        /* Right Side: Phone Container on Desktop */
-        .phone-container {
-            background: #ffffff;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
+/* Right Side: Phone Container on Desktop */
+.phone-container {
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
 
-        @media (min-width: 960px) {
-            .phone-container {
-                width: 450px; /* Fixed "Phone" size on desktop */
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-        }
+@media (min-width: 960px) {
+    .phone-container {
+        width: 450px;
+        /* Fixed "Phone" size on desktop */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
 
-        /* Mobile View: Take Full Screen */
-        @media (max-width: 959px) {
-            .phone-container {
-                width: 100%;
-                height: 100vh;
-            }
-            body {
-                overflow: auto;
-            }
-        }
+/* Mobile View: Take Full Screen */
+@media (max-width: 959px) {
+    .phone-container {
+        width: 100%;
+        height: 100vh;
+    }
 
-        .mock-app-screen {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-        }
+    body {
+        overflow: auto;
+    }
+}
 
-        .status-bar {
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            font-weight: 600;
-            color: #64748b;
-        }
+.mock-app-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-        }
+.status-bar {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+}
 
 /* ==== section hero ==== */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 .section-hero {
     height: 100vh;
     text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #C4C9CB;
+    background-position: center center;
+    background-size: cover;
 }
 
-.section-hero .the-wedding-of {
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    text-transform: uppercase;
+.container-section-hero-header {
+    padding: 100px 0;
+    padding-top: 8em;
+    width: 100%;
 }
-/* https://byattari.com/satriawevy/# */
+
+.section-hero .container-section-hero-quotes {
+    font-size: 12px;
+    padding-right: 25px;
+    padding-left: 25px;
+    letter-spacing: 0.5px;
+    bottom: 120px;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 400;
+    position: fixed;
+    line-height: normal;
+}
+
+
+.section-hero .the-wedding-of {
+    font-size: .8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #C4C9CB;
+}
+
+
+.section-hero .groom-bride-name {
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: -1px;
+}
