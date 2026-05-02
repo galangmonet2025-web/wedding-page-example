@@ -35,15 +35,86 @@
             </div>
         </div>
 
+        <!-- Transition Door Animation -->
+        <div id="door-transition" class="door-transition-overlay" style="display: none;">
+            <div class="door-container">
+                <svg class="door-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Door Frame -->
+                    <rect class="door-frame" x="60" y="40" width="80" height="120" fill="none" stroke="white"
+                        stroke-width="2" />
+                    <!-- Left Door -->
+                    <rect class="door-left" x="60" y="40" width="40" height="120" fill="rgba(0,0,0,0.2)" stroke="white"
+                        stroke-width="2" />
+                    <!-- Right Door -->
+                    <rect class="door-right" x="100" y="40" width="40" height="120" fill="rgba(0,0,0,0.2)"
+                        stroke="white" stroke-width="2" />
+                    <!-- Line Man (Abstract) -->
+                    <g class="line-man">
+                        <circle class="man-head" cx="100" cy="85" r="5" fill="none" stroke="white" stroke-width="1.5" />
+                        <path class="man-body"
+                            d="M100,90 L100,115 M100,100 L85,95 M100,100 L115,95 M100,115 L90,130 M100,115 L110,130"
+                            fill="none" stroke="white" stroke-width="1.5" />
+                    </g>
+                </svg>
+                <div class="opening-text">Membuka Gerbang Kebahagiaan...</div>
+            </div>
+        </div>
+
         <!-- SEBELAH KANAN (UKURAN HANDPHONE) -->
-        <div class="phone-container" id="main-content">
+        <div class="phone-container" id="main-content"
+            style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../asset-img/D & G-562.jpg');">
             <div class="mock-app-screen">
 
                 <!-- Cover page berisikan kata2 kpd yth nama tamu yang di undang, dan button buka undangan, buka QC code -->
-                <section class="section-hero"
-                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('C:/Users/galan/Downloads/Dini & Galang-20260501T153804Z-3-001/Dini & Galang/D & G-67.jpg');">
+                <section class="section-cover"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../asset-img/D & G-67.jpg');">
+                    <div class="container-section-header">
+                        <div class="the-wedding-of">
+                            THE WEDDING OF
+                        </div>
 
-                    <div class="container-section-hero-header">
+                        <div class="groom-bride-name">
+                            <span>Galang</span> & <span>Dini</span>
+                        </div>
+
+                        <div class="the-wedding-of">
+                            Sabtu, 21 Mei 2022
+                        </div>
+                    </div>
+
+                    <div class="container-section-cover-guest">
+                        <span>Kepada Yth.</span><br>
+                        <label>Bapak/Ibu/Saudara/i</label>
+                        <p class="guest-name">Tamu Undangan</p>
+                        <p>Tanpa mengurangi rasa hormat, <br>kami mengundang anda untuk menghadiri <br>acara pernikahan
+                            kami.</p>
+
+                        <button class="btn" id="btn-open-invitation">Buka Undangan</button>
+                        <button class="btn" style="padding: 8px 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" style="vertical-align: middle;">
+                                <rect width="5" height="5" x="3" y="3" rx="1" />
+                                <rect width="5" height="5" x="16" y="3" rx="1" />
+                                <rect width="5" height="5" x="3" y="16" rx="1" />
+                                <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+                                <path d="M21 21v.01" />
+                                <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+                                <path d="M3 12h.01" />
+                                <path d="M12 3h.01" />
+                                <path d="M12 16v.01" />
+                                <path d="M16 12h1" />
+                                <path d="M21 12v.01" />
+                                <path d="M12 21v-1" />
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 1 Hero page (nama, tanggal, quotes, background gambar hero) -->
+                <section class="section-hero">
+
+                    <div class="container-section-header">
                         <div class="the-wedding-of">
                             THE WEDDING OF
                         </div>
@@ -61,32 +132,660 @@
                         <span>“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu
                             dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan
                             diantaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat
-                            tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”</span> <br>
-                        <label> QS. Ar-Rum: 21</label>
+                            tanda-tanda bagi kaum yang berpikir.”</span>
+                        <br>
+                        <span>(QS. Ar-Rum: 21)</span>
+                    </div>
+
+                    <div class="scroll-indicator">
+                        <div class="mouse">
+                            <div class="wheel"></div>
+                        </div>
+                        <span>scroll kebawah</span>
+                    </div>
+                </section>
+
+
+
+                <!-- Section 2 perkenalan pasangan (nama, nama orang tua, akun sosmed) -->
+                <section class="section-couples">
+                    <div class="container-section-header" style="padding-bottom: 0;">
+                        <div class="the-wedding-of">
+                            pasangan
+                        </div>
+
+                        <div class="groom-bride-name">
+                            <span>Mempelai</span>
+                        </div>
+
+                        <div class="quotes" style="margin-top: 20px; line-height: 1.6; text-transform: none;">
+                            Dengan segala puji bagi Allah yang telah menciptakan mahluk-Nya berpasang-pasangan, Ya Allah
+                            izinkanlah kami merangkai cinta yang Engkau berikan dalam ikatan pernikahan.
+                        </div>
+                    </div>
+
+                    <div class="couple-content">
+                        <!-- Journey Separator -->
+                        <div class="couple-separator">
+                            <svg class="journey-line-art" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                                <path class="line-path" d="M20,50 C60,50 60,20 100,50 C140,80 140,50 180,50" fill="none"
+                                    stroke="white" stroke-width="2" />
+                                <path class="heart-icon" d="M90,45 Q100,35 110,45 T100,65 T90,45" fill="none"
+                                    stroke="white" stroke-width="2" />
+                                <circle class="end-dot" cx="180" cy="50" r="3" fill="white" />
+                            </svg>
+                        </div>
+
+                        <!-- Laki-laki (Groom) -->
+                        <div class="couple-row">
+                            <div class="couple-info">
+                                <h3 class="couple-name">Galang Pratama, S.Kom</h3>
+                                <p class="couple-parents">
+                                    Putra dari <br>
+                                    Bapak [Nama Bapak] <br>
+                                    &
+                                    Ibu [Nama Ibu]
+                                </p>
+                                <a href="#" class="couple-instagram">
+                                    <span uk-icon="instagram" style="margin-right: 5px;"></span> @galang
+                                </a>
+                            </div>
+                            <div class="couple-img-wrapper">
+                                <img src="../asset-img/D & G-40.jpg" alt="Galang" class="couple-img">
+                            </div>
+                        </div>
+
+                        <hr class="couple-divider">
+
+                        <!-- Perempuan (Bride) -->
+                        <div class="couple-row reverse">
+                            <div class="couple-info">
+                                <h3 class="couple-name">Dini Rahayu, S.Pd</h3>
+                                <p class="couple-parents">
+                                    Putri dari <br>
+                                    Bapak [Nama Bapak] <br>
+                                    &
+                                    Ibu [Nama Ibu]
+                                </p>
+                                <a href="#" class="couple-instagram">
+                                    <span uk-icon="instagram" style="margin-right: 5px;"></span> @dini
+                                </a>
+                            </div>
+                            <div class="couple-img-wrapper">
+                                <img src="../asset-img/D & G-50.jpg" alt="Dini" class="couple-img">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3 waktu & tempat untuk akad & resepsi -->
+                <section class="section-schedule"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../asset-img/D & G-67.jpg');">
+                    <div class="container-section-schedule">
+                        <div class="the-wedding-of">
+                            Acara pernikahan
+                        </div>
+                        <div class="groom-bride-name">
+                            Waktu & tempat
+                        </div>
+                    </div>
+
+                    <div class="schedule-content" style="padding: 0 20px; margin-top: 20px;">
+                        <!-- Akad Nikah -->
+                        <div class="schedule-card">
+                            <div class="schedule-icon" style="margin-bottom: 15px; color: #fff;">
+                                <span uk-icon="calendar" style="margin-right: 5px;"></span>
+                            </div>
+                            <h3 class="schedule-title">Akad Nikah</h3>
+                            <div class="schedule-date">Sabtu, 21 Mei 2026</div>
+                            <div class="schedule-time">Pukul 08.00 - 10.00 WIB</div>
+                            <hr class="schedule-line">
+                            <div class="schedule-venue">Gedung Serbaguna</div>
+                            <div class="schedule-address">Jl. Contoh Alamat No. 123, Jakarta Selatan</div>
+                            <br>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-schedule">
+                                <span uk-icon="location" style="margin-right: 5px;"></span> Buka Google Maps
+                            </a>
+                        </div>
+
+                        <!-- Resepsi -->
+                        <div class="schedule-card" style="margin-top: 30px;">
+                            <div class="schedule-icon" style="margin-bottom: 15px; color: #fff;">
+                                <span uk-icon="icon: users; ratio: 1.5"></span>
+                            </div>
+                            <h3 class="schedule-title">Resepsi</h3>
+                            <div class="schedule-date">Sabtu, 21 Mei 2026</div>
+                            <div class="schedule-time">Pukul 11.00 - 13.00 WIB</div>
+                            <hr class="schedule-line">
+                            <div class="schedule-venue">Gedung Serbaguna</div>
+                            <div class="schedule-address">Jl. Contoh Alamat No. 123, Jakarta Selatan</div>
+                            <br>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-schedule">
+                                <span uk-icon="location" style="margin-right: 5px;"></span> Buka Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- section 4 count down, input form konfirmasi kehadiran -->
+                <section class="section-rsvp">
+                    <div class="container-section-header">
+                        <div class="the-wedding-of">
+                            HITUNG MUNDUR
+                        </div>
+
+                        <div class="groom-bride-name">
+                            Menuju Hari bahagia
+                        </div>
+                        <div class="countdown-container" id="countdown">
+                            <div class="countdown-item">
+                                <div class="countdown-box" id="days">00</div>
+                                <div class="countdown-label">Hari</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-box" id="hours">00</div>
+                                <div class="countdown-label">Jam</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-box" id="minutes">00</div>
+                                <div class="countdown-label">Menit</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-box" id="seconds">00</div>
+                                <div class="countdown-label">Detik</div>
+                            </div>
+                        </div>
+
+                        <div class="rsvp-form-container" id="rsvp-container">
+                            <div class="glass-form" id="rsvp-form">
+                                <div class="the-wedding-of">
+                                    Konfirmasi Kehadiran
+                                </div>
+                                <div class="uk-margin-small">
+                                    <input class="uk-input custom-input" type="text" id="guest-code"
+                                        placeholder="Kode Undangan">
+                                </div>
+                                <div class="uk-margin-small">
+                                    <input class="uk-input custom-input" type="text" id="guest-name-input"
+                                        placeholder="Nama Tamu">
+                                </div>
+                                <div class="uk-margin-small">
+                                    <select class="uk-select custom-input" id="attendance-status">
+                                        <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                                        <option value="hadir">Hadir</option>
+                                        <option value="tidak-hadir">Tidak Hadir</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-konfirm" id="submit-rsvp"
+                                    style="margin-top: 10px; width: 100%;">Konfirmasi</button>
+                            </div>
+                            <div id="rsvp-thank-you" style="display: none; padding: 20px;" class="thank-you-message">
+                                <!-- Message will be injected here -->
+                            </div>
+                        </div>
                     </div>
 
 
                 </section>
 
-                <!-- Section 1 Hero page (nama, tanggal, quotes, background gambar hero) -->
 
-                <!-- Section 2 perkenalan pasangan (nama, nama orang tua, akun sosmed) -->
+                <!-- Section 5 Section untuk live streaming -->
+                <section class="section-streaming" style="background-image: url('../asset-img/D & G-45.jpg');">
+                    <div class="container-section-header">
+                        <div class="the-wedding-of">LIVE STREAMING</div>
+                        <div class="groom-bride-name">Momen Bahagia</div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; margin-top: 10px;">
+                            Bagi Bapak/Ibu/Saudara/i yang tidak dapat hadir secara langsung, kami mengundang Anda untuk
+                            menyaksikan momen bahagia kami melalui siaran langsung.
+                        </div>
+                    </div>
 
-                <!-- section 3 count down, input form konfirmasi kehadiran -->
-
-                <!-- Section 4 waktu & tempat untuk akad & resepsi -->
-
-                <!-- section 5 Section untuk live streaming -->
+                    <div class="streaming-container uk-padding">
+                        <div class="glass-card streaming-card" style="text-align: center; padding: 30px;">
+                            <div class="streaming-icon uk-margin-bottom">
+                                <span uk-icon="icon: video-camera; ratio: 2.5" style="color: #fff;"></span>
+                            </div>
+                            <div class="streaming-info">
+                                <h4 style="color: #fff; font-weight: 700; margin-bottom: 10px;">YOUTUBE LIVE</h4>
+                                <p style="font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                                    Siaran akan dimulai pada pukul 08:00 WIB
+                                </p>
+                                <a href="https://youtube.com" target="_blank" class="btn-schedule"
+                                    style="text-decoration: none;">
+                                    BUKA STREAMING
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Section 6 Timeline kisah -->
+                <section class="section-story">
+                    <div class="container-section-header">
+                        <div class="the-wedding-of">OUR JOURNEY</div>
+                        <div class="groom-bride-name">Love Story</div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; margin-top: 10px;">
+                            Perjalanan cinta kami dari awal bertemu hingga akhirnya memutuskan untuk bersatu.
+                        </div>
+                    </div>
+
+                    <div class="story-container uk-padding uk-padding-remove-bottom uk-padding-remove-top">
+                        <div class="story-scroll-box"
+                            uk-scrollspy="target: > .story-timeline > .story-item; cls: uk-scrollspy-inview; delay: 300; repeat: true">
+                            <div class="story-timeline">
+                                <!-- Story 1 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">Mei 2021</div>
+                                    <h4 class="story-title">Pertama Bertemu</h4>
+                                    <p class="story-text">Tak sengaja bertemu di sebuah acara, sapaan hangat yang
+                                        mengawali segalanya.</p>
+                                </div>
+                                <!-- Story 2 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">Oktober 2021</div>
+                                    <h4 class="story-title">Obrolan Mendalam</h4>
+                                    <p class="story-text">Dari sekadar sapaan berlanjut ke obrolan panjang tentang mimpi
+                                        dan hobi yang sama.</p>
+                                </div>
+                                <!-- Story 3 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">Agustus 2022</div>
+                                    <h4 class="story-title">Menjalin Komitmen</h4>
+                                    <p class="story-text">Memutuskan untuk melangkah bersama, saling mendukung dalam
+                                        suka dan duka.</p>
+                                </div>
+                                <!-- Story 4 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">Desember 2022</div>
+                                    <h4 class="story-title">Perjalanan Pertama</h4>
+                                    <p class="story-text">Menjelajahi tempat baru bersama, mengukir memori indah di
+                                        setiap langkah kaki.</p>
+                                </div>
+                                <!-- Story 5 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">September 2023</div>
+                                    <h4 class="story-title">Pertemuan Keluarga</h4>
+                                    <p class="story-text">Mengenalkan satu sama lain ke keluarga besar, langkah awal
+                                        menuju ikatan yang lebih serius.</p>
+                                </div>
+                                <!-- Story 6 -->
+                                <div class="story-item">
+                                    <div class="story-dot"></div>
+                                    <div class="story-date">Januari 2024</div>
+                                    <h4 class="story-title">Lamaran</h4>
+                                    <p class="story-text">Ikatan suci dimulai dengan restu orang tua, menuju janji setia
+                                        selamanya.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story Footer Animation (Fixed outside scroll) -->
+                        <div class="story-footer">
+                            <svg class="journey-line-art" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                                <path class="line-path" d="M20,50 C60,50 60,20 100,50 C140,80 140,50 180,50" fill="none"
+                                    stroke="white" stroke-width="2" />
+                                <path class="heart-icon" d="M90,45 Q100,35 110,45 T100,65 T90,45" fill="none"
+                                    stroke="white" stroke-width="2" />
+                                <circle class="end-dot" cx="180" cy="50" r="3" fill="white" />
+                            </svg>
+                            <div class="journey-text">Dan perjalanan indah pun dimulai...</div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Section 7 gallery foto -->
+                <section class="section-gallery" style="background-image: url('../asset-img/D & G-50.jpg');">
+                    <div class="container-section-header" style="margin-top: -50px;">
+                        <div class="the-wedding-of">OUR MOMENTS</div>
+                        <div class="groom-bride-name">Wedding Gallery</div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; margin-top: 10px;">
+                            Momen-momen indah yang kami abadikan dalam lensa kamera.
+                        </div>
+                    </div>
+
+                    <div class="gallery-container uk-padding" uk-lightbox="animation: slide">
+                        <div class="uk-grid-small uk-child-width-1-2 uk-child-width-1-3@m" uk-grid>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-37.jpg"
+                                    caption="Prewedding 1">
+                                    <img src="../asset-img/D & G-37.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-40.jpg"
+                                    caption="Prewedding 2">
+                                    <img src="../asset-img/D & G-40.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-45.jpg"
+                                    caption="Prewedding 3">
+                                    <img src="../asset-img/D & G-45.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-50.jpg"
+                                    caption="Prewedding 4">
+                                    <img src="../asset-img/D & G-50.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-67.jpg"
+                                    caption="Prewedding 5">
+                                    <img src="../asset-img/D & G-67.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="uk-inline gallery-item" href="../asset-img/D & G-77.jpg"
+                                    caption="Prewedding 6">
+                                    <img src="../asset-img/D & G-77.jpg" alt="" class="gallery-img">
+                                    <div class="gallery-overlay">
+                                        <div class="overlay-content">
+                                            <span uk-icon="icon: search; ratio: 1.5"></span>
+                                            <div class="overlay-label">LIHAT</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Section 8 Form input ucapan & list ucapan di bawahnya, data ucapan dari tamu undangan bisa sangat bayak, jika lebih dari 8 ucapan maka selebihnya bisa diakses via scroll kotak ucapannya -->
+                <!-- Section 8 Form input ucapan & list ucapan di bawahnya -->
+                <section class="section-wishes"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../asset-img/D & G-67.jpg');">
+
+                    <div class="container-section-header">
+                        <div class="groom-bride-name">
+                            Ucapan & Doa
+                        </div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; margin-top: 10px;">
+                            Berikan ucapan manis dan doa restu Anda untuk kedua mempelai.
+                        </div>
+                    </div>
+
+                    <div class="wishes-container">
+                        <!-- Form Input Ucapan -->
+                        <div class="wishes-form-wrapper" id="wish-container">
+                            <form class="glass-form" id="wish-form">
+                                <div class="uk-margin-small">
+                                    <input class="uk-input custom-input" type="text" id="wish-name"
+                                        placeholder="Nama Anda">
+                                </div>
+                                <div class="uk-margin-small">
+                                    <textarea class="uk-textarea custom-input" rows="3" id="wish-message"
+                                        placeholder="Tulis Ucapan & Doa..."
+                                        style="height: auto !important; padding: 12px !important;"></textarea>
+                                </div>
+                                <button type="button" id="submit-wish" class="btn-konfirm"
+                                    style="width: 100%; margin-top: 5px;">KIRIM
+                                    UCAPAN</button>
+                            </form>
+                            <div id="wish-thank-you" class="thank-you-message uk-margin-top uk-padding"
+                                style="display: none;">
+                                Terima kasih atas ucapan dan doanya! ✨
+                            </div>
+                        </div>
+
+                        <!-- List Ucapan -->
+                        <div class="wishes-list-wrapper">
+                            <div class="wishes-scroll-box">
+                                <!-- Wish Item 1 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Budi Santoso</span>
+                                        <span class="wish-time">2 menit yang lalu</span>
+                                    </div>
+                                    <div class="wish-text">Selamat menempuh hidup baru Galang dan Dini! Semoga menjadi
+                                        keluarga yang sakinah mawaddah warahmah. Amin.</div>
+                                </div>
+                                <!-- Wish Item 2 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Siti Aminah</span>
+                                        <span class="wish-time">15 menit yang lalu</span>
+                                    </div>
+                                    <div class="wish-text">Happy wedding ya! Langgeng terus sampai kakek nenek. Maaf
+                                        belum bisa hadir langsung tapi doa kami selalu menyertai.</div>
+                                </div>
+                                <!-- Wish Item 3 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Rian Pratama</span>
+                                        <span class="wish-time">1 jam yang lalu</span>
+                                    </div>
+                                    <div class="wish-text">Selamat ya bro! Akhirnya nyusul juga. Semoga dilancarkan
+                                        segala urusannya dan cepat dapat momongan.</div>
+                                </div>
+                                <!-- Wish Item 4 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Lani Wijaya</span>
+                                        <span class="wish-time">3 jam yang lalu</span>
+                                    </div>
+                                    <div class="wish-text">Barakallahulakuma wa baraka 'alaikuma wa jama'a bainakuma fii
+                                        khoir. Selamat menempuh ibadah terlama!</div>
+                                </div>
+                                <!-- Wish Item 5 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Doni & Istri</span>
+                                        <span class="wish-time">5 jam yang lalu</span>
+                                    </div>
+                                    <div class="wish-text">Selamat Galang! Dini titip Galang ya, dia orang baik. Semoga
+                                        kalian berdua selalu dalam lindungan Allah SWT.</div>
+                                </div>
+                                <!-- Wish Item 6 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Alumni IT 2018</span>
+                                        <span class="wish-time">Yesterday, 10:30</span>
+                                    </div>
+                                    <div class="wish-text">Happy wedding Dini! Semoga menjadi keluarga bahagia dan penuh
+                                        berkah. Salam dari teman-teman kampus!</div>
+                                </div>
+                                <!-- Wish Item 7 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Tante Sarah</span>
+                                        <span class="wish-time">Yesterday, 09:15</span>
+                                    </div>
+                                    <div class="wish-text">Selamat ya keponakan tercinta. Semoga cinta kalian berdua
+                                        terus bersemi hingga akhir hayat. Amin ya Rabbal alamin.</div>
+                                </div>
+                                <!-- Wish Item 8 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Budi Sudarsono</span>
+                                        <span class="wish-time">2 days ago</span>
+                                    </div>
+                                    <div class="wish-text">Selamat mengarungi bahtera rumah tangga. Semoga sabar dan
+                                        ikhlas dalam setiap langkah. Tuhan memberkati.</div>
+                                </div>
+                                <!-- Wish Item 9 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Andi Jauhari</span>
+                                        <span class="wish-time">2 days ago</span>
+                                    </div>
+                                    <div class="wish-text">Wishing you a lifetime of love and happiness! Congratulations
+                                        on your big day!</div>
+                                </div>
+                                <!-- Wish Item 10 -->
+                                <div class="wish-item glass-card">
+                                    <div class="wish-header">
+                                        <span class="wish-author">Maya Kusuma</span>
+                                        <span class="wish-time">3 days ago</span>
+                                    </div>
+                                    <div class="wish-text">Cantik banget Dini! Selamat ya buat kalian berdua. Semoga
+                                        lancar sampai hari H dan seterusnya.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Section 9 amplop online, berisikan no rekening / qris & alamat tempat untuk pengiriman kado -->
+                <section class="section-gift">
+                    <div class="container-section-header">
+                        <div class="groom-bride-name" style="margin-bottom: 20px;">
+                            WEDDING GIFT
+                        </div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; line-height: 1.6;">
+                            Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, apabila Anda ingin
+                            memberi kado, kami sediakan fitur ini.
+                        </div>
+                    </div>
+
+                    <div class="gift-content" style="padding: 0 30px; margin-top: 30px;">
+                        <div class="gift-rekening-container">
+                            <!-- Rekening 1 -->
+                            <div class="gift-card glass-card">
+                                <div class="gift-bank-logo">BANK BCA</div>
+                                <div class="gift-number" id="acc-1">1234567890</div>
+                                <div class="gift-name">a/n Galang Pratama</div>
+                                <button class="btn-copy" onclick="copyToClipboard('acc-1', this)">
+                                    <span uk-icon="copy" style="margin-right: 5px;"></span> SALIN NOMOR REKENING
+                                </button>
+                            </div>
+
+                            <!-- Rekening 2 -->
+                            <div class="gift-card glass-card">
+                                <div class="gift-bank-logo">BANK MANDIRI</div>
+                                <div class="gift-qris-wrapper">
+                                    <img src="../asset-img/D & G-37.jpg" alt="QRIS" class="gift-qris-img">
+                                </div>
+                                <div class="gift-number" id="acc-2">0987654321</div>
+                                <div class="gift-name">a/n Dini Rahayu</div>
+                                <button class="btn-copy" onclick="copyToClipboard('acc-2', this)">
+                                    <span uk-icon="copy" style="margin-right: 5px;"></span> SALIN NOMOR REKENING
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Alamat -->
+                        <div class="gift-instruction"
+                            style="text-align: center; margin-bottom: 15px; color: rgba(255,255,255,0.7); font-size: 13px; font-style: italic;">
+                            "Bagi Bapak/Ibu/Saudara/i yang ingin mengirimkan kado fisik berupa barang, dapat dikirimkan
+                            melalui alamat di bawah ini:"
+                        </div>
+                        <div class="gift-card glass-card">
+                            <div class="gift-icon" style="margin-bottom: 15px; color: #fff;">
+                                <span uk-icon="icon: home; ratio: 1.5"></span>
+                            </div>
+                            <div class="gift-title"
+                                style="font-weight: 700; font-size: 1.2em; color: #fff; margin-bottom: 10px;">Alamat
+                                Pengiriman</div>
+                            <div class="gift-address" id="gift-addr"
+                                style="font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px;">
+                                <strong>Dini Rahayu</strong><br>
+                                Jl. Contoh Alamat No. 123, <br>
+                                Kec. Cilacap Selatan, Kab. Cilacap, <br>
+                                Jawa Tengah 53211
+                            </div>
+                            <button class="btn-copy" onclick="copyToClipboard('gift-addr', this)">
+                                <span uk-icon="copy" style="margin-right: 5px;"></span> SALIN ALAMAT
+                            </button>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Section 10 Kata penutup bisa berisi informasi undangan by website ini -->
+                <section class="section-closing">
+
+                    <div class="container-section-header">
+                        <img src="../asset-img/D & G-282.jpg" alt="Closing Photo" class="closing-photo">
+
+                        <div class="header">
+                            Terima kasih <br> atas kehadirannya
+                        </div>
+
+                        <div class="quotes uk-padding-remove-top uk-padding-remove-bottom">
+                            Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan
+                            hadir
+                            di hari bahagia kami.
+                        </div>
+
+
+                        <div class="uk-text-bold">
+                            <br>
+                            <span>Galang</span> & <span>Dini</span>
+                        </div>
+                    </div>
+
+                    <footer class="invitation-footer">
+                        <div class="footer-name">Wedding Builder</div>
+                        <div class="footer-info">Digital wedding invitation &copy; 2026</div>
+                        <div class="footer-social">
+                            <a href="#" aria-label="TikTok">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="WhatsApp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-7.6 8.38 8.38 0 0 1 3.8.9L21 4.5z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </footer>
+
+
+                </section>
+
+
 
             </div>
         </div>
@@ -96,6 +795,7 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit-icons.min.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
