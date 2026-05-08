@@ -176,3 +176,53 @@ if (contactForm) {
     window.open(waUrl, '_blank');
   });
 }
+
+// ---- Carousel Logic (Mobile) ----
+function initCarousels() {
+  const dotContainers = document.querySelectorAll('.carousel-dots');
+  
+  dotContainers.forEach(container => {
+    const gridId = container.dataset.for;
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    // Use a slight delay to ensure dynamic items are rendered if any (e.g. templates, though not used here yet)
+    const items = Array.from(grid.children).filter(child => !child.classList.contains('carousel-dots'));
+    
+    // Create dots
+    items.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      container.appendChild(dot);
+    });
+
+    const dots = container.querySelectorAll('.dot');
+
+    // Intersection Observer for Active State
+    const observerOptions = {
+      root: grid,
+      threshold: 0.5,
+      rootMargin: '0px -20% 0px -20%' // Favor the center
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = items.indexOf(entry.target);
+          
+          // Update Items
+          items.forEach(item => item.classList.remove('is-active'));
+          entry.target.classList.add('is-active');
+
+          // Update Dots
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        }
+      });
+    }, observerOptions);
+
+    items.forEach(item => observer.observe(item));
+  });
+}
+
+// Initialize on Load
+window.addEventListener('load', initCarousels);
