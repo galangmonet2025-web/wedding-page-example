@@ -42,7 +42,7 @@ body {
 
 @media (min-width: 960px) {
     .phone-container {
-        width: 450px;
+        width: 500px;
         /* Fixed "Phone" size on desktop */
         height: 100vh;
         display: flex;
@@ -67,6 +67,7 @@ body {
     flex-direction: column;
     background-color: transparent;
     width: 100%;
+    position: relative;
 }
 
 .status-bar {
@@ -1118,8 +1119,12 @@ body {
     background-size: cover;
     background-position: center;
     width: 100%;
-    position: relative;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
 }
 
 .container-section-cover-guest {
@@ -1296,6 +1301,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     text-align: center;
     font-family: "Poppins", sans-serif;
     color: #C4C9CB;
@@ -1338,9 +1344,11 @@ body {
 
 /* ==== invitation footer ==== */
 .invitation-footer {
-    margin-top: auto;
-    padding-top: 50px;
-    padding-bottom: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 10em;
     text-align: center;
     color: rgba(255, 255, 255, 0.4);
     font-size: 11px;
@@ -1385,101 +1393,232 @@ body {
     transform: translateY(-3px);
 }
 
-/* ==== Door Transition Animation ==== */
-.door-transition-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
 
-.door-container {
-    text-align: center;
-}
-
-.door-svg {
-    width: 250px;
-    height: 250px;
-}
-
-.door-left {
-    transform-origin: left;
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.door-right {
-    transform-origin: right;
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.opening-text {
-    color: #fff;
-    font-size: 14px;
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    opacity: 0.8;
-}
-
-/* Animation Classes */
-.doors-open .door-left {
-    transform: perspective(500px) rotateY(-110deg);
-}
-
-.doors-open .door-right {
-    transform: perspective(500px) rotateY(110deg);
-}
-
-.doors-open .line-man {
-    animation: manWalkIn 1.5s ease forwards;
-}
-
-@keyframes manWalkIn {
-    0% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(0.5) translateY(-20px);
-        opacity: 0;
-    }
-}
-
-.door-fade-out {
-    animation: overlayFadeOut 1s ease forwards;
-    animation-delay: 1.5s;
-}
-
-@keyframes overlayFadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
 
 /* Hide all sections initially except cover */
 section:not(.section-cover) {
     display: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Class to reveal content and hide cover */
 .mock-app-screen.reveal-content section:not(.section-cover) {
     display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .mock-app-screen.reveal-content .section-cover {
-    display: none !important;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hero Staggered Animations */
+.section-hero .the-wedding-of,
+.section-hero .groom-bride-name,
+.section-hero .container-section-hero-quotes,
+.section-hero .scroll-indicator {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+}
+
+.mock-app-screen.reveal-content .section-hero .the-wedding-of {
+    animation: revealUp 1s ease forwards 0.8s;
+}
+
+.mock-app-screen.reveal-content .section-hero .groom-bride-name {
+    animation: revealUp 1s ease forwards 1s;
+}
+
+.mock-app-screen.reveal-content .section-hero .container-section-hero-quotes {
+    animation: revealUp 1s ease forwards 1.2s;
+}
+
+.mock-app-screen.reveal-content .section-hero .scroll-indicator {
+    animation: revealUpCentered 1s ease forwards 1.4s;
+}
+
+@keyframes revealUpCentered {
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* ==== Floating UI & Menu ==== */
+.floating-ui-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    padding: 20px;
+}
+
+@media (min-width: 960px) {
+    .floating-ui-container {
+        width: 500px;
+        right: 0;
+        left: auto;
+    }
+}
+
+.floating-btn {
+    pointer-events: auto;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.floating-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.btn-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.bottom-controls {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Menu Modal Styles */
+.transparent-dark-bg {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(15px);
+}
+
+.menu-header {
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.menu-wedding-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.menu-couple-name {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.menu-wedding-date {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.menu-divider {
+    width: 40px;
+    height: 2px;
+    background: white;
+    margin: 25px auto 0;
+    opacity: 0.3;
+}
+
+.menu-list {
+    margin-top: 40px;
+}
+
+.menu-list li {
+    margin-bottom: 15px;
+}
+
+.menu-list a {
+    font-size: 1.2rem !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease !important;
+}
+
+.menu-list a:hover {
+    color: white !important;
+    letter-spacing: 5px;
+    transform: scale(1.1);
+}
+
+.menu-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-close-btn:hover {
+    transform: rotate(90deg);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation for music icon when playing */
+.music-playing {
+    animation: pulseIcon 2s infinite;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

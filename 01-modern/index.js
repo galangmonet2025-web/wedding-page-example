@@ -178,39 +178,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle Opening Invitation
     const btnOpen = document.getElementById('btn-open-invitation');
-    const doorOverlay = document.getElementById('door-transition');
-    const coverSection = document.querySelector('.section-cover');
     const phoneContainer = document.querySelector('.phone-container');
     const appScreen = document.querySelector('.mock-app-screen');
+    const floatingUI = document.getElementById('floating-ui');
+    const btnMusic = document.getElementById('btn-music');
+    const bgMusic = document.getElementById('bg-music');
+    let isPlaying = false;
+
+    // Function to update UI based on music state
+    function updateMusicUI() {
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        if (!playIcon || !pauseIcon) return;
+
+        if (bgMusic.paused) {
+            btnMusic.classList.remove('music-playing');
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        } else {
+            btnMusic.classList.add('music-playing');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        }
+    }
+
+    if (bgMusic) {
+        bgMusic.addEventListener('play', updateMusicUI);
+        bgMusic.addEventListener('pause', updateMusicUI);
+        bgMusic.addEventListener('playing', updateMusicUI);
+    }
 
     if (btnOpen) {
         btnOpen.onclick = function() {
             console.log("Button Open Clicked");
             
-            // 1. Show the door transition
-            if (doorOverlay) doorOverlay.style.display = 'flex';
-            
-            // 2. Reveal all hidden sections
             if (appScreen) appScreen.classList.add('reveal-content');
 
-            // 3. Trigger door animation
             setTimeout(() => {
-                if (doorOverlay) doorOverlay.classList.add('doors-open');
-                
-                // 4. Unlock scroll and hide cover
-                setTimeout(() => {
-                    if (coverSection) coverSection.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    if (phoneContainer) phoneContainer.style.overflowY = 'auto';
-                    
-                    // 5. Fade out overlay
-                    if (doorOverlay) doorOverlay.classList.add('door-fade-out');
-                    
-                    setTimeout(() => {
-                        if (doorOverlay) doorOverlay.style.display = 'none';
-                    }, 1000);
-                }, 1500);
-            }, 500);
+                document.body.style.overflow = 'auto';
+                if (phoneContainer) phoneContainer.style.overflowY = 'auto';
+            }, 1000);
+
+            if (floatingUI) floatingUI.style.display = 'block';
+            if (bgMusic) {
+                bgMusic.play().catch(err => console.log("Auto-play blocked"));
+            }
         };
+    }
+
+    if (btnMusic && bgMusic) {
+        btnMusic.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+            } else {
+                bgMusic.pause();
+            }
+        });
     }
 });
