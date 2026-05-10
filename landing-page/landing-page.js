@@ -4,8 +4,26 @@
 
 // ---- NAV scroll ----
 const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+}
+
+// Close menu on link click
+document.querySelectorAll('.nav__links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
 });
 
 // ---- Reveal on scroll ----
@@ -84,11 +102,32 @@ function renderTemplates(cat) {
         <div class="template-card__cat">${t.cat}</div>
         <div class="template-card__price">${t.price}</div>
         <div class="template-card__actions">
-          <a href="#demo" class="btn btn--outline">Preview</a>
+          <button class="btn btn--outline preview-btn" data-index="${i}">Preview</button>
         </div>
       </div>
     `;
     grid.appendChild(card);
+  });
+
+  // Re-attach preview listeners
+  document.querySelectorAll('.preview-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = e.target.dataset.index;
+      const t = filtered[idx];
+      const mockupImg = document.querySelector('.phone__img');
+      
+      // Visual feedback
+      mockupImg.style.opacity = '0';
+      setTimeout(() => {
+        // In a real app, we would change src: mockupImg.src = t.previewUrl;
+        // For now, we'll simulate it with a gradient overlay or just a scroll
+        mockupImg.style.background = `linear-gradient(135deg, ${t.colors[0]}, ${t.colors[1]})`;
+        mockupImg.style.opacity = '1';
+        
+        // Scroll to mockup
+        document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    });
   });
 }
 
@@ -112,19 +151,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// ---- Countdown (demo section) ----
-function updateDemoCountdown() {
-  const target = new Date('2025-10-20T10:00:00');
-  const now = new Date();
-  const diff = target - now;
-  if (diff > 0) {
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const el = document.getElementById('cdDay');
-    if (el) el.textContent = days;
-  }
-}
-updateDemoCountdown();
-setInterval(updateDemoCountdown, 60000);
 
 // ---- Smooth section fade on nav links ----
 document.querySelectorAll('a[href^="#"]').forEach(link => {

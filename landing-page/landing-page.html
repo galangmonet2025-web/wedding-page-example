@@ -5,6 +5,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kundangan – Undangan Digital Pernikahan Elegan</title>
+  <meta name="description"
+    content="Buat undangan digital pernikahan elegan, cepat, dan praktis dalam 5 menit. Ribuan pasangan telah mempercayakan momen bahagia mereka kepada Kundangan." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kundangan.id/" />
+  <meta property="og:title" content="Kundangan – Undangan Digital Pernikahan Elegan" />
+  <meta property="og:description"
+    content="Buat undangan digital pernikahan elegan, cepat, dan praktis dalam 5 menit." />
+  <meta property="og:image" content="hero-preview.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://kundangan.id/" />
+  <meta property="twitter:title" content="Kundangan – Undangan Digital Pernikahan Elegan" />
+  <meta property="twitter:description"
+    content="Buat undangan digital pernikahan elegan, cepat, dan praktis dalam 5 menit." />
+  <meta property="twitter:image" content="hero-preview.png" />
   <link rel="stylesheet" href="landing-page.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -16,15 +34,24 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <div class="nav__logo">✦ Kundangan</div>
-    <ul class="nav__links">
-      <li><a href="#fitur">Fitur</a></li>
-      <li><a href="#template">Template</a></li>
-      <li><a href="#harga">Harga</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-    </ul>
-    <a href="#/login" class="btn btn--outline btn--sm">Masuk</a>
+    <div class="nav__logo">✦ Kosa Invitation</div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav__menu" id="navMenu">
+      <ul class="nav__links">
+        <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#template">Template</a></li>
+        <li><a href="#harga">Harga</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+      <a href="#/login" class="btn btn--outline btn--sm nav__login">Masuk</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -76,8 +103,8 @@
         </div>
 
         <div class="hero__cta reveal">
-          <a href="#harga" class="btn btn--gold">Buat Undangan Gratis</a>
-          <a href="#demo" class="btn btn--ghost">▶ Lihat Demo</a>
+          <a href="#harga" class="btn btn--gold">Buat Undangan Sekarang</a>
+          <!-- <a href="#template" class="btn btn--ghost">▶ Lihat Demo</a> -->
         </div>
 
         <div class="hero__badges reveal">
@@ -170,7 +197,7 @@
   </section>
 
   <!-- TEMPLATE -->
-  <section class="templates" id="template">
+  <!-- <section class="templates" id="template">
     <div class="section__header">
       <span class="section__tag">Template Showcase</span>
       <h2>Pilih Gaya<br /><em>Yang Paling Kamu</em></h2>
@@ -183,30 +210,10 @@
       <button class="tab" data-cat="modern">Modern</button>
     </div>
     <div class="templates__grid" id="templatesGrid">
-      <!-- injected by JS -->
+      injected by JS
     </div>
-  </section>
+  </section> -->
 
-  <!-- DEMO -->
-  <section class="demo" id="demo">
-    <div class="demo__inner">
-      <div class="demo__content">
-        <span class="section__tag">Live Preview</span>
-        <h2>Lihat Sendiri<br /><em>Betapa Cantiknya</em></h2>
-        <p>Scroll, klik, rasakan pengalaman tamu membuka undanganmu. Semua berjalan di HP tamu tanpa perlu install
-          apapun.</p>
-        <a href="#harga" class="btn btn--gold">Coba Demo Sekarang</a>
-      </div>
-      <div class="demo__phone-wrap">
-        <div class="phone phone--demo">
-          <div class="phone__screen">
-            <img src="demo-preview.png" alt="Demo Undangan" class="phone__img">
-          </div>
-          <div class="phone__bar"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TESTIMONI -->
   <section class="testimonials" id="testimoni">
@@ -218,7 +225,7 @@
       <div class="testi-card reveal">
         <div class="testi-card__stars">★★★★★</div>
         <p>"Kami buat undangan dalam 30 menit saja! Desainnya cantik banget, semua tamu terkagum-kagum. Terima kasih
-          Kundangan!"</p>
+          Kosa Invitation!"</p>
         <div class="testi-card__author">
           <div class="testi-card__avatar">AR</div>
           <div>
@@ -278,7 +285,7 @@
       <div class="pricing__card pricing__card--featured reveal">
         <div class="pricing__badge">⭐ Terpopuler</div>
         <div class="pricing__tier">Pro</div>
-        <div class="pricing__price">Rp 199</div>
+        <div class="pricing__price">Rp 199k</div>
         <div class="pricing__period">1 Tahun</div>
         <ul class="pricing__features">
           <li>✓ Semua template Pro</li>
@@ -286,6 +293,7 @@
           <li>✓ Export data undangan</li>
           <li>✓ Input data tamu via google contacts</li>
           <li>✓ Galeri foto (15 foto)</li>
+
 
         </ul>
         <a href="#/register?plan_type=pro" class="btn btn--gold">Mulai Sekarang</a>
@@ -319,24 +327,11 @@
     <div class="add-features__list">
       <div class="add-feature-item reveal">
         <div class="add-feature__info">
-          <h4>Custom Domain</h4>
-          <p>Gunakan domain khusus seperti namamu.com</p>
+          <h4>Wedding Gallery</h4>
+          <p>Buat halaman gallery digital untuk mengabadikan momen berhargamu tanpa batasan waktu, akses kapanpun
+            dimanapun.</p>
         </div>
-        <div class="add-feature__price">Rp 150.000</div>
-      </div>
-      <div class="add-feature-item reveal">
-        <div class="add-feature__info">
-          <h4>WhatsApp Blast</h4>
-          <p>Kirim ribuan undangan otomatis dalam sekali klik</p>
-        </div>
-        <div class="add-feature__price">Rp 200.000</div>
-      </div>
-      <div class="add-feature-item reveal">
-        <div class="add-feature__info">
-          <h4>Buku Tamu Digital</h4>
-          <p>Check-in tamu di lokasi menggunakan QR Code</p>
-        </div>
-        <div class="add-feature__price">Rp 100.000</div>
+        <div class="add-feature__price">Rp 250.000</div>
       </div>
       <div class="add-feature-item reveal">
         <div class="add-feature__info">
@@ -352,27 +347,7 @@
         </div>
         <div class="add-feature__price">Rp 150.000</div>
       </div>
-      <div class="add-feature-item reveal">
-        <div class="add-feature__info">
-          <h4>E-Gift & Angpao</h4>
-          <p>Terima kado digital langsung ke rekeningmu</p>
-        </div>
-        <div class="add-feature__price">FREE</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA CLOSING -->
-  <section class="cta-closing">
-    <div class="cta-closing__inner">
-      <div class="cta-closing__ornament">✦ ✦ ✦</div>
-      <h2>Siap Buat Undangan<br /><em>Pernikahanmu?</em></h2>
-      <p>Bergabunglah bersama ribuan pasangan yang telah merasakan kemudahannya. <strong>Gratis untuk 100 user pertama
-          hari ini!</strong></p>
-      <a href="#" class="btn btn--gold btn--lg">✦ Buat Sekarang — Gratis</a>
-      <div class="cta-closing__urgency">
-        <span class="pulse-dot"></span> 47 dari 100 slot gratis tersisa
-      </div>
     </div>
   </section>
 
@@ -495,7 +470,7 @@
   <footer class="footer">
     <div class="footer__top">
       <div class="footer__brand">
-        <div class="footer__logo">✦ Kundangan</div>
+        <div class="footer__logo">✦ Kosa Invitation</div>
         <p>Platform undangan digital pernikahan paling elegan di Indonesia.</p>
         <div class="footer__social">
           <a href="#">Instagram</a>
@@ -509,7 +484,7 @@
           <a href="#">Fitur</a>
           <a href="#">Template</a>
           <a href="#">Harga</a>
-          <a href="#">Demo</a>
+          <a href="#template">Demo</a>
         </div>
         <div class="footer__col">
           <h5>Bantuan</h5>
@@ -528,7 +503,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2025 Kundangan. Dibuat dengan ♥ untuk pasangan Indonesia.</span>
+      <span>© 2026 Kosa Invitation. Dibuat dengan ♥ untuk pasangan Indonesia.</span>
       <span>hello@kundangan.id</span>
     </div>
 
