@@ -17,20 +17,36 @@
     <div class="uk-grid-collapse uk-height-viewport" uk-grid>
 
         <!-- SEBELAH KIRI (BESAR) - Hidden on Mobile -->
-        <div class="uk-width-expand uk-visible@m preview-sidebar uk-flex uk-flex-center uk-flex-middle">
-            <div class="uk-width-2-3@l uk-text-center glass-card">
-                <span class="uk-label uk-border-pill uk-margin-small-bottom"
-                    style="background: rgba(255,255,255,0.2)">Admin Panel</span>
-                <h1 class="uk-heading-small uk-text-bold uk-margin-remove">Wedding Builder</h1>
-                <p class="uk-text-lead uk-margin-medium-top" style="color: rgba(255,255,255,0.8)">
-                    Anda sedang melihat tampilan live preview. Silahkan modifikasi konten melalui panel navigasi di
-                    sebelah kanan.
-                </p>
-                <div class="uk-margin-large-top">
-                    <button class="uk-button uk-button-default uk-button-large uk-border-rounded"
-                        style="color: white; border-color: rgba(255,255,255,0.4)">
-                        <span uk-icon="settings" class="uk-margin-small-right"></span> Configuration
-                    </button>
+        <div class="uk-width-expand uk-visible@m preview-sidebar" id="desktop-bg-container"
+            style="background: none; padding: 0; overflow: hidden; position: relative;">
+            <!-- Lapisan 1: Gambar Background -->
+            <div id="layer-bg"
+                style="position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; background-image: url('../asset-img/D & G-37.jpg'); background-size: cover; background-position: center; z-index: 1; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+            </div>
+
+            <!-- Lapisan 2: Hitam Transparan -->
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 2;">
+            </div>
+
+            <!-- Lapisan 3: Animasi Daun Jatuh -->
+            <div id="layer-leaves"
+                style="position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; z-index: 3; pointer-events: none; overflow: hidden; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+            </div>
+
+            <!-- Konten: Pojok Kiri Bawah -->
+            <div id="layer-text"
+                style="position: absolute; bottom: 0; left: 0; padding: 60px; z-index: 4; width: 100%; transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <div
+                    style="text-transform: uppercase; letter-spacing: 3px; font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 100;">
+                    The Wedding Of</div>
+                <h1
+                    style="font-size: 4.5rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.1; letter-spacing: -2px;">
+                    Galang & Dini</h1>
+                <div
+                    style="margin-top: 10px; letter-spacing: 1px; font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 600; display: flex; align-items: center; gap: 10px; text-transform: uppercase;">
+                    <span uk-icon="icon: calendar; ratio: 1.2"></span>
+                    Sabtu, 21 Mei 2026
                 </div>
             </div>
         </div>
@@ -871,6 +887,26 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit-icons.min.js"></script>
     <script src="index.js"></script>
+
+    <!-- Parallax Mouse Effect Script -->
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const container = document.getElementById('desktop-bg-container');
+            if (!container || window.innerWidth < 960) return;
+
+            const x = (e.clientX / window.innerWidth) - 0.5;
+            const y = (e.clientY / window.innerHeight) - 0.5;
+
+            const bg = document.getElementById('layer-bg');
+            const leaves = document.getElementById('layer-leaves');
+            const text = document.getElementById('layer-text');
+
+            if (bg) bg.style.transform = `translate(${x * -30}px, ${y * -30}px)`;
+            if (leaves) leaves.style.transform = `translate(${x * 60}px, ${y * 60}px)`;
+            if (text) text.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
+        });
+
+    </script>
 </body>
 
 </html>

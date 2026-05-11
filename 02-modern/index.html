@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-var="site_name">Undangan Pernikahan</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/css/uikit.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Mobile Container -->
+    <div id="main-container">
+        
+        <!-- Halaman Cover (theme-cover) -->
+        <section id="theme-cover" class="section-cover" data-bg="photo_hero_cover" style="background-image: url('https://picsum.photos/1080/1920?random=1');">
+            <div class="cover-overlay"></div>
+            <div class="cover-content">
+                <div class="wedding-label">THE WEDDING OF</div>
+                <h1 class="couple-names">
+                    <span data-var="groom_nickname">Galang</span> & <span data-var="bride_nickname">Dini</span>
+                </h1>
+                <div class="wedding-date" data-var="wedding_date">Sabtu, 21 Mei 2022</div>
+                
+                <div class="guest-box">
+                    <div class="guest-to">Kepada Yth. Bapak/Ibu/Saudara/i</div>
+                    <div class="guest-name" data-var="guest_name">Tamu Undangan</div>
+                    <p class="invitation-text" data-var="kalimat_pembuka">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.</p>
+                </div>
+
+                <div class="cover-buttons">
+                    <button id="btn-open-invitation" class="btn-primary">
+                        <span uk-icon="mail" class="uk-margin-small-right"></span> Buka Undangan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Utama (main-content) -->
+        <main id="main-content" style="display: none;">
+            
+            <!-- Section 1: Hero -->
+            <section class="section-hero" data-bg="photo_background" style="background-image: url('https://picsum.photos/1080/1920?random=2');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="wedding-label">THE WEDDING OF</div>
+                    <h2 class="couple-names-hero">
+                        <span data-var="groom_name">Galang Pratama</span> & <span data-var="bride_name">Dini Rahayu</span>
+                    </h2>
+                    <div class="wedding-date-hero" data-var="wedding_date">Sabtu, 21 Mei 2022</div>
+                    
+                    <div class="quote-container">
+                        <p class="quote-text" data-var="quote">“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...”</p>
+                    </div>
+
+                    <div class="scroll-indicator">
+                        <div class="mouse"><div class="wheel"></div></div>
+                        <span>Scroll Down</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Mempelai -->
+            <section id="couples" data-menu-label="Mempelai" class="section-couples uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Pasangan Mempelai</div>
+                    
+                    <!-- Groom -->
+                    <div class="couple-card" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+                        <div class="couple-img-frame">
+                            <img data-img="photo_groom_photo" src="https://picsum.photos/400/600?random=3" alt="Groom" class="couple-img">
+                        </div>
+                        <h3 class="name" data-var="groom_name">Galang Pratama, S.Kom</h3>
+                        <div data-if="flag_tampilkan_nama_orang_tua" class="parents">
+                            Putra dari <br>
+                            Bapak <span data-var="nama_bapak_laki_laki">Nama Bapak</span> & <br>
+                            Ibu <span data-var="nama_ibu_laki_laki">Nama Ibu</span>
+                        </div>
+                        <div data-if="flag_tampilkan_sosial_media_mempelai">
+                            <a href="#" class="social-link"><span uk-icon="instagram"></span> @<span data-var="ig_laki_laki">galang</span></a>
+                        </div>
+                    </div>
+
+                    <div class="couple-divider">&</div>
+
+                    <!-- Bride -->
+                    <div class="couple-card" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+                        <div class="couple-img-frame">
+                            <img data-img="photo_bride_photo" src="https://picsum.photos/400/600?random=4" alt="Bride" class="couple-img">
+                        </div>
+                        <h3 class="name" data-var="bride_name">Dini Rahayu, S.Pd</h3>
+                        <div data-if="flag_tampilkan_nama_orang_tua" class="parents">
+                            Putri dari <br>
+                            Bapak <span data-var="nama_bapak_perempuan">Nama Bapak</span> & <br>
+                            Ibu <span data-var="nama_ibu_perempuan">Nama Ibu</span>
+                        </div>
+                        <div data-if="flag_tampilkan_sosial_media_mempelai">
+                            <a href="#" class="social-link"><span uk-icon="instagram"></span> @<span data-var="ig_perempuan">dini</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Countdown & RSVP -->
+            <section class="section-countdown uk-section" style="background: #fdfdfd;">
+                <div class="uk-container">
+                    <div class="section-title">Save The Date</div>
+                    <div class="countdown-grid">
+                        <div class="countdown-item">
+                            <span class="num" data-var="countdown_hari">00</span>
+                            <span class="label">Hari</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="num" data-var="countdown_jam">00</span>
+                            <span class="label">Jam</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="num" data-var="countdown_menit">00</span>
+                            <span class="label">Menit</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="num" data-var="countdown_detik">00</span>
+                            <span class="label">Detik</span>
+                        </div>
+                    </div>
+
+                    <!-- RSVP FORM -->
+                    <div class="rsvp-wrapper uk-margin-large-top">
+                        <div data-if="is_sudah_isi_konfirmasi_kehadiran">
+                            <div class="alert-success" data-if="flag_konfirmasi_kehadiran_dari_tamu">
+                                <h3>Terima Kasih!</h3>
+                                <p>Terima kasih atas konfirmasi kehadiran Anda. Sampai jumpa di lokasi!</p>
+                            </div>
+                            <div data-else class="alert-info">
+                                <h3>Terima Kasih!</h3>
+                                <p>Terima kasih atas konfirmasi Anda. Doa restu Anda sangat berarti bagi kami.</p>
+                            </div>
+                        </div>
+                        <div data-else id="rsvp-container" class="glass-form">
+                            <h4 class="form-title">Konfirmasi Kehadiran</h4>
+                            <div class="uk-margin">
+                                <input id="rsvp-code" class="uk-input" type="text" placeholder="Kode Undangan" data-var="kode_undangan">
+                            </div>
+                            <div class="uk-margin">
+                                <input id="rsvp-guests" class="uk-input" type="text" placeholder="Nama Tamu" data-var="guest_name">
+                            </div>
+                            <div class="uk-margin">
+                                <select id="rsvp-status" class="uk-select">
+                                    <option value="">Apakah Anda Akan Hadir?</option>
+                                    <option value="hadir">Hadir</option>
+                                    <option value="tidak-hadir">Tidak Hadir</option>
+                                </select>
+                            </div>
+                            <button id="btn-submit-kehadiran" class="btn-primary uk-width-1-1">Kirim Konfirmasi</button>
+                            <div id="alert-submit-kehadiran" class="uk-margin-top uk-text-small" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Waktu & Tempat -->
+            <section id="schedule" data-menu-label="Waktu & tempat" class="section-schedule uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Waktu & Tempat</div>
+                    
+                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                        <!-- Akad -->
+                        <div>
+                            <div class="event-card" uk-scrollspy="cls: uk-animation-slide-bottom; repeat: true">
+                                <div class="event-icon"><span uk-icon="heart"></span></div>
+                                <h3 class="event-name">Akad Nikah</h3>
+                                <div class="event-date" data-var="tanggal_akad">Sabtu, 21 Mei 2022</div>
+                                <div class="event-time" data-var="jam_akad">08:00 - 10:00 WIB</div>
+                                <div class="event-location">
+                                    <strong data-var="nama_lokasi_akad">Gedung Serbaguna</strong><br>
+                                    <span data-var="keterangan_lokasi_akad">Jl. Contoh Alamat No. 123</span>
+                                </div>
+                                <a data-var="akad_map" href="#" target="_blank" class="btn-outline uk-margin-top">Buka Google Maps</a>
+                            </div>
+                        </div>
+
+                        <!-- Resepsi -->
+                        <div class="uk-margin-medium-top">
+                            <div class="event-card" uk-scrollspy="cls: uk-animation-slide-bottom; delay: 200; repeat: true">
+                                <div class="event-icon"><span uk-icon="users"></span></div>
+                                <h3 class="event-name">Resepsi Pernikahan</h3>
+                                <div class="event-date" data-var="tanggal_resepsi">Sabtu, 21 Mei 2022</div>
+                                <div class="event-time" data-var="jam_resepsi">11:00 - 13:00 WIB</div>
+                                <div class="event-location">
+                                    <strong data-var="nama_lokasi_resepsi">Gedung Serbaguna</strong><br>
+                                    <span data-var="keterangan_lokasi_resepsi">Jl. Contoh Alamat No. 123</span>
+                                </div>
+                                <a data-var="resepsi_map" href="#" target="_blank" class="btn-outline uk-margin-top">Buka Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Streaming -->
+            <section data-if="is_fitur_live_streaming" data-menu-label="Streaming" class="section-streaming uk-section uk-text-center">
+                <div class="uk-container">
+                    <div class="section-title">Live Streaming</div>
+                    <p>Saksikan momen bahagia kami secara virtual melalui siaran langsung di bawah ini:</p>
+                    <a data-var="link_live_streaming" href="#" target="_blank" class="btn-primary"><span uk-icon="video-camera" class="uk-margin-small-right"></span> Tonton Live Streaming</a>
+                </div>
+            </section>
+
+            <!-- Section 6: Story -->
+            <section data-if="flag_pakai_timeline_kisah" class="section-story uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Our Story</div>
+                    <div class="timeline" data-loop="timeline_kisah">
+                        <!-- Item pertama wajib prefix this. -->
+                        <div class="timeline-item" uk-scrollspy="cls: uk-animation-fade; repeat: true">
+                            <div class="timeline-date" data-var="this.tanggal">Mei 2021</div>
+                            <div class="timeline-content glass-card">
+                                <h4 class="timeline-title" data-var="this.judul">Pertama Bertemu</h4>
+                                <p data-var="this.deskripsi">Kami pertama kali bertemu di sebuah acara komunitas...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Gallery -->
+            <section id="gallery" data-if="is_fitur_gallery" class="section-gallery uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Gallery</div>
+                    <div data-if="has_gallery" class="gallery-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@m" uk-grid uk-lightbox="animation: slide" data-loop="galleries">
+                        <div>
+                            <a class="uk-inline gallery-item" data-var="this.url" href="https://picsum.photos/800/1200?random=10">
+                                <img data-img="this.url" src="https://picsum.photos/400/600?random=10" alt="Gallery" class="lightbox-injection">
+                                <div class="gallery-overlay"><span uk-icon="search"></span></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: Wishes -->
+            <section id="wishes" data-menu-label="Doa & Ucapan" class="section-wishes uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Ucapan & Doa</div>
+                    
+                    <!-- Form Ucapan -->
+                    <div class="wish-form-wrapper">
+                        <div data-if="is_sudah_isi_ucapan">
+                            <div class="alert-success">
+                                <p>Terima kasih atas doa dan ucapan manisnya! ✨</p>
+                            </div>
+                        </div>
+                        <div data-else id="wish-form-container" class="glass-form uk-margin-bottom">
+                            <div class="uk-margin">
+                                <input id="wish-name" class="uk-input" type="text" placeholder="Nama Anda" data-var="guest_name">
+                            </div>
+                            <div class="uk-margin">
+                                <textarea id="wish-message" class="uk-textarea" rows="3" placeholder="Tulis Ucapan & Doa..."></textarea>
+                            </div>
+                            <button id="btn-submit-ucapan" class="btn-primary uk-width-1-1">Kirim Ucapan</button>
+                            <div id="alert-submit-ucapan" class="uk-margin-top uk-text-small" style="display:none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- List Ucapan -->
+                    <div class="wishes-list-container" data-loop="wishes">
+                        <div class="wish-item glass-card" uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true">
+                            <div class="wish-header">
+                                <div class="wish-avatar" data-var="this.guest_initial">B</div>
+                                <div class="wish-info">
+                                    <h5 class="wish-author" data-var="this.guest_name">Budi Santoso</h5>
+                                    <span class="wish-time" data-var="this.guest_comment_time">2 menit yang lalu</span>
+                                </div>
+                            </div>
+                            <p class="wish-text" data-var="this.guest_message">Selamat menempuh hidup baru! Semoga samawa.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Gift -->
+            <section id="gift" data-if="tampilkan_amplop_online" data-menu-label="Wedding gifts" class="section-gift uk-section">
+                <div class="uk-container">
+                    <div class="section-title">Wedding Gift</div>
+                    <p class="uk-text-center uk-margin-bottom">Doa restu Anda sangat berarti bagi kami. Namun jika ingin memberi kado, Anda bisa melalui:</p>
+                    
+                    <div class="gift-grid">
+                        <!-- Rekening 1 -->
+                        <div class="gift-card glass-card">
+                            <div class="bank-name" data-var="bank_1">BANK BCA</div>
+                            <div class="acc-number" id="acc-1" data-var="rek_1">1234567890</div>
+                            <div class="acc-name" data-var="nama_rek_1">a/n Galang Pratama</div>
+                            <button class="btn-copy" onclick="copyToClipboard('acc-1', this)">Salin Rekening</button>
+                            
+                            <div data-if="flag_pakai_qris_rekening_1" class="uk-margin-top">
+                                <img data-img="gambar_qris_rekening_1" src="https://picsum.photos/200/200?random=15" alt="QRIS" class="qris-img">
+                            </div>
+                        </div>
+
+                        <!-- Rekening 2 -->
+                        <div data-if="flag_pakai_2_rekening" class="gift-card glass-card uk-margin-top">
+                            <div class="bank-name" data-var="bank_2">BANK MANDIRI</div>
+                            <div class="acc-number" id="acc-2" data-var="rek_2">0987654321</div>
+                            <div class="acc-name" data-var="nama_rek_2">a/n Dini Rahayu</div>
+                            <button class="btn-copy" onclick="copyToClipboard('acc-2', this)">Salin Rekening</button>
+
+                            <div data-if="flag_pakai_qris_rekening_2" class="uk-margin-top">
+                                <img data-img="gambar_qris_rekening_2" src="https://picsum.photos/200/200?random=16" alt="QRIS" class="qris-img">
+                            </div>
+                        </div>
+
+                        <!-- Offline Gift -->
+                        <div data-if="flag_kirim_hadiah_offline" class="gift-card glass-card uk-margin-top">
+                            <div class="bank-name">Kirim Kado (Offline)</div>
+                            <div class="event-location">
+                                <strong data-var="nama_lokasi_kirim_hadiah_offline">Rumah Mempelai</strong><br>
+                                <span data-var="alamat_lokasi_kirim_hadiah_offline">Jl. Alamat Lengkap Pengiriman No. 123</span>
+                            </div>
+                            <a data-var="map_kirim_hadiah_offline" href="#" target="_blank" class="btn-outline uk-margin-top uk-width-1-1">Buka Lokasi</a>
+                        </div>
+                    </div>
+
+                    <!-- Gift Confirmation Form -->
+                    <div class="gift-confirmation-wrapper uk-margin-large-top">
+                        <div data-if="is_sudah_kirim_hadiah">
+                            <div class="alert-success">
+                                <p>Terima kasih atas kiriman hadiahnya! 🙏</p>
+                            </div>
+                        </div>
+                        <div data-else id="gift-form-container" class="glass-form">
+                            <h4 class="form-title">Konfirmasi Pengiriman Kado</h4>
+                            <div class="uk-margin">
+                                <input id="gift-name" class="uk-input" type="text" placeholder="Nama Pengirim" data-var="guest_name">
+                            </div>
+                            <div class="uk-margin">
+                                <input id="gift-bank" class="uk-input" type="text" placeholder="Bank / Platform (Misal: BCA / Shopee)">
+                            </div>
+                            <div class="uk-margin">
+                                <input id="gift-amount" class="uk-input" type="number" placeholder="Nominal (Opsional)">
+                            </div>
+                            <button id="btn-submit-hadiah" class="btn-primary uk-width-1-1">Konfirmasi Kado</button>
+                            <div id="alert-submit-hadiah" class="uk-margin-top uk-text-small" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Closing -->
+            <section class="section-closing uk-section uk-text-center" data-bg="photo_closing" style="background-image: url('https://picsum.photos/1080/1920?random=20');">
+                <div class="hero-overlay"></div>
+                <div class="uk-container" style="position:relative; z-index:2; color:white;">
+                    <div class="section-title" style="color:white;">Terima Kasih</div>
+                    <p data-var="kalimat_penutup">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.</p>
+                    
+                    <h2 class="couple-names-closing">
+                        <span data-var="groom_nickname">Galang</span> & <span data-var="bride_nickname">Dini</span>
+                    </h2>
+
+                    <footer class="footer-info uk-margin-large-top">
+                        <div data-var="site_name">Kosa Invitation</div>
+                        <p data-var="tagline">Digital Wedding Invitation</p>
+                        <a data-var="site_url" href="https://kundangan.id">www.kundangan.id</a>
+                    </footer>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Floating UI (theme-fab-container) -->
+        <div id="theme-fab-container">
+            <button id="btn-show-menu" class="fab-btn" uk-toggle="target: #nav-modal">
+                <span uk-icon="menu"></span>
+            </button>
+            <button id="btn-toggle-music" class="fab-btn music-btn">
+                <i uk-icon="play"></i>
+            </button>
+            <button id="btn-show-qr" class="fab-btn" uk-toggle="target: #qr-modal">
+                <span uk-icon="grid"></span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Navigation Modal -->
+    <div id="nav-modal" class="uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle glass-modal" uk-height-viewport>
+            <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+            <ul class="uk-nav uk-nav-primary uk-nav-center">
+                <li><a href="#couples" uk-scroll uk-toggle="target: #nav-modal">Mempelai</a></li>
+                <li><a href="#schedule" uk-scroll uk-toggle="target: #nav-modal">Waktu & Tempat</a></li>
+                <li data-if="is_fitur_gallery"><a href="#gallery" uk-scroll uk-toggle="target: #nav-modal">Gallery</a></li>
+                <li><a href="#wishes" uk-scroll uk-toggle="target: #nav-modal">Ucapan & Doa</a></li>
+                <li data-if="tampilkan_amplop_online"><a href="#gift" uk-scroll uk-toggle="target: #nav-modal">Gift</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body glass-card uk-text-center uk-margin-auto-vertical" style="max-width: 300px;">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h3 class="uk-modal-title">QR Tamu</h3>
+            <div class="uk-margin">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=GUEST_CODE" alt="QR Code" class="qr-img">
+                <p class="uk-margin-small-top" data-var="guest_name">Nama Tamu</p>
+                <code data-var="kode_undangan">ABC-123</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit-icons.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

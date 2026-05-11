@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pilihan Icon Daun Lengkap</title>
+    <style>
+        body { 
+            background: #222; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 50px;
+        }
+        .grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center; 
+            margin-top: 50px; 
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card { 
+            background: #333; 
+            padding: 20px; 
+            border-radius: 15px; 
+            width: 150px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: #444;
+        }
+        .card svg { 
+            width: 60px; 
+            height: 60px; 
+            margin-bottom: 15px; 
+            fill: #e2e8f0;
+            filter: drop-shadow(0 5px 10px rgba(255,255,255,0.2));
+        }
+        .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pilihan Icon Daun (Super Lengkap)</h1>
+    <p>Silakan tunggu sebentar, icon sedang dimuat...</p>
+    <p>Beri tahu saya nama icon yang Anda inginkan (misal: "Opsi leaf" atau "Opsi clover").</p>
+    
+    <div class="grid" id="icon-grid"></div>
+
+    <script>
+        const icons = [
+            'leaf', 'seedling', 'clover', 'droplet', 'feather', 'tree', 'snowflake',
+            'heart', 'star', 'fire', 'moon', 'cloud', 'spa', 'fan', 'cannabis', 'gem',
+            'meteor', 'bolt', 'paper-plane', 'ghost', 'crown', 'bell', 'award', 'dove',
+            'music', 'camera', 'gift'
+        ];
+
+        const grid = document.getElementById('icon-grid');
+
+        // FontAwesome 6 Solid SVGs
+        icons.forEach(icon => {
+            const url = `https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/${icon}.svg`;
+            
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error('Not found');
+                    return res.text();
+                })
+                .then(svgCode => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        ${svgCode.replace('<svg', '<svg fill="currentColor"')}
+                        <div class="title">Opsi:<br>${icon}</div>
+                    `;
+                    grid.appendChild(card);
+                })
+                .catch(err => {
+                    console.log(`Failed to load icon: ${icon}`);
+                });
+        });
+    </script>
+</body>
+</html>

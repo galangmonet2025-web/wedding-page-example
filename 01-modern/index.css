@@ -1622,3 +1622,27 @@ section:not(.section-cover) {
         transform: translateY(0);
     }
 }
+
+/* ==== Falling Leaves Animation ==== */
+.falling-leaf {
+    position: absolute;
+    top: -10%;
+    pointer-events: none;
+    z-index: 3;
+    animation-name: fall, sway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: normal, alternate;
+    color: white;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+@keyframes sway {
+    0% { transform: scale(var(--leaf-scale, 1)) translateX(-40px) rotate(-25deg); }
+    100% { transform: scale(var(--leaf-scale, 1)) translateX(40px) rotate(45deg); }
+}
