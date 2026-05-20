@@ -7,12 +7,21 @@ window.copyToClipboard = function(elementId, btn) {
     const originalText = btn.innerHTML;
 
     function handleSuccess() {
-        btn.innerHTML = '<span uk-icon="check" style="margin-right: 5px;"></span> DATA TERSALIN';
-        btn.style.background = "rgba(40, 167, 69, 0.5)";
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = "";
-        }, 2000);
+        if (typeof UIkit !== 'undefined') {
+            UIkit.notification({
+                message: '<span uk-icon="icon: check"></span> Teks berhasil disalin!',
+                status: 'success',
+                pos: 'top-center',
+                timeout: 2000
+            });
+        } else {
+            btn.innerHTML = '<span uk-icon="check" style="margin-right: 5px;"></span> DATA TERSALIN';
+            btn.style.background = "rgba(40, 167, 69, 0.5)";
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = "";
+            }, 2000);
+        }
     }
 
     if (navigator.clipboard && window.isSecureContext) {
@@ -180,16 +189,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnOpen = document.getElementById('btn-open-invitation');
     const phoneContainer = document.querySelector('.phone-container');
     const appScreen = document.querySelector('.mock-app-screen');
-    const floatingUI = document.getElementById('floating-ui');
-    const btnMusic = document.getElementById('btn-music');
+    const floatingUI = document.getElementById('theme-fab-container') || document.getElementById('floating-ui');
+    const btnMusic = document.getElementById('btn-toggle-music') || document.getElementById('btn-music');
     const bgMusic = document.getElementById('bg-music');
+    const btnScrollUp = document.getElementById('btn-scroll-up');
     let isPlaying = false;
 
     // Function to update UI based on music state
     function updateMusicUI() {
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
-        if (!playIcon || !pauseIcon) return;
+        if (!playIcon || !pauseIcon || !btnMusic) return;
 
         if (bgMusic.paused) {
             btnMusic.classList.remove('music-playing');
@@ -233,6 +243,36 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 bgMusic.pause();
             }
+        });
+    }
+
+    // Auto Scroll Up Logic
+    if (btnScrollUp) {
+        function handleScroll() {
+            const scrollTop = phoneContainer ? phoneContainer.scrollTop : window.scrollY;
+            if (scrollTop > 300) {
+                btnScrollUp.style.display = 'flex';
+            } else {
+                btnScrollUp.style.display = 'none';
+            }
+        }
+
+        if (phoneContainer) {
+            phoneContainer.addEventListener('scroll', handleScroll);
+        }
+        window.addEventListener('scroll', handleScroll);
+
+        btnScrollUp.addEventListener('click', function() {
+            if (phoneContainer) {
+                phoneContainer.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

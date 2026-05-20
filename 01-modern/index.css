@@ -105,18 +105,16 @@ body {
 }
 
 /* Ken Burns Effect on Background */
-.section-hero::before {
-    content: "";
-    position: absolute;
+.section-hero > .hero-bg {
+    position: absolute !important;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../asset-img/D & G-502.jpg');
     background-size: cover;
     background-position: center;
     animation: kenBurns 20s ease-in-out infinite alternate;
-    z-index: 0;
+    z-index: 0 !important;
 }
 
 /* Floating Orbs */
