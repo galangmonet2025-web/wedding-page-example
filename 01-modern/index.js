@@ -90,6 +90,51 @@ const x = setInterval(function() {
 
 // RSVP Form Logic
 document.addEventListener('DOMContentLoaded', function() {
+    // Happiness Card Stacking Carousel Logic
+    const happinessCards = document.querySelectorAll('.stacked-card');
+    if (happinessCards.length > 0) {
+        happinessCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // If it is already the center card, do nothing
+                if (this.classList.contains('card-center')) return;
+
+                const activeLeft = document.querySelector('.stacked-card.card-left');
+                const activeCenter = document.querySelector('.stacked-card.card-center');
+                const activeRight = document.querySelector('.stacked-card.card-right');
+
+                if (this.classList.contains('card-left')) {
+                    // Click left card: left becomes center, center becomes right, right becomes left
+                    if (activeLeft) {
+                        activeLeft.classList.remove('card-left');
+                        activeLeft.classList.add('card-center');
+                    }
+                    if (activeCenter) {
+                        activeCenter.classList.remove('card-center');
+                        activeCenter.classList.add('card-right');
+                    }
+                    if (activeRight) {
+                        activeRight.classList.remove('card-right');
+                        activeRight.classList.add('card-left');
+                    }
+                } else if (this.classList.contains('card-right')) {
+                    // Click right card: right becomes center, center becomes left, left becomes right
+                    if (activeRight) {
+                        activeRight.classList.remove('card-right');
+                        activeRight.classList.add('card-center');
+                    }
+                    if (activeCenter) {
+                        activeCenter.classList.remove('card-center');
+                        activeCenter.classList.add('card-left');
+                    }
+                    if (activeLeft) {
+                        activeLeft.classList.remove('card-left');
+                        activeLeft.classList.add('card-right');
+                    }
+                }
+            });
+        });
+    }
+
     const submitBtn = document.getElementById('submit-rsvp');
     const rsvpForm = document.getElementById('rsvp-form');
     const thankYouMsg = document.getElementById('rsvp-thank-you');

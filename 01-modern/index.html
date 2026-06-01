@@ -107,7 +107,9 @@
 
                 <!-- Section 1 Hero page (nama, tanggal, quotes, background gambar hero) -->
                 <section class="section-hero">
-                    <div class="hero-bg" data-bg="photo_cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../asset-img/D & G-502.jpg');"></div>
+                    <div class="hero-bg" data-bg="photo_cover"
+                        style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../asset-img/D & G-502.jpg');">
+                    </div>
 
                     <div class="container-section-header">
                         <div class="the-wedding-of">
@@ -580,6 +582,66 @@
                     </section>
                 </div>
 
+                <!-- Section 7.5 Berbagi Kebahagiaan -->
+                <section id="happiness" class="section-happiness"
+                    style="background-image: url('../asset-img/D & G-67.jpg');"
+                    uk-scrollspy="cls: uk-animation-scale-up; target: .stacked-card; delay: 150; repeat: true">
+                    <div class="container-section-header">
+                        <div class="the-wedding-of">Bagikan momen bahagia kita</div>
+                        <div class="groom-bride-name">Berbagi Kebahagiaan</div>
+                        <div class="quotes" style="padding: 0 30px; font-size: 13px; margin-top: 10px;">
+                            Kehangatan dan kebahagiaan kami yang terangkum dalam tumpukan memori indah.
+                        </div>
+                    </div>
+
+                    <div class="happiness-container uk-padding" style="padding-bottom: 20px !important;">
+                        <div class="card-stack-wrapper">
+                            <div class="card-stack">
+                                <!-- Card 3 (Bottom) -->
+                                <div class="stacked-card card-left">
+                                    <div class="card-inner">
+                                        <img src="../asset-img/D & G-37.jpg" alt="Memory 1" class="card-photo">
+                                        <img src="../asset-img/frame2.png" alt="Frame" class="card-frame">
+                                    </div>
+                                    <div class="card-caption">Tawa & Ceria</div>
+                                </div>
+                                <!-- Card 2 (Middle) -->
+                                <div class="stacked-card card-center">
+                                    <div class="card-inner">
+                                        <img src="../asset-img/D & G-45.jpg" alt="Memory 2" class="card-photo">
+                                        <img src="../asset-img/frame2.png" alt="Frame" class="card-frame">
+                                    </div>
+                                    <div class="card-caption">Langkah Bersama</div>
+                                </div>
+                                <!-- Card 1 (Top) -->
+                                <div class="stacked-card card-right">
+                                    <div class="card-inner">
+                                        <img src="../asset-img/D & G-77.jpg" alt="Memory 3" class="card-photo">
+                                        <img src="../asset-img/frame2.png" alt="Frame" class="card-frame">
+                                    </div>
+                                    <div class="card-caption">Janji Suci</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bagian bawah: Button dan Ajakan Share -->
+                        <div style="margin-top: 30px; text-align: center; padding: 0 20px;">
+                            <a href="#" class="btn-konfirm" id="btn-share-instagram" target="_blank"
+                                style="min-width: 200px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-decoration: none; display: inline-block;">
+                                <span uk-icon="icon: instagram; ratio: 1.1"
+                                    style="margin-right: 8px; vertical-align: middle;"></span>
+                                Bagikan Momen
+                            </a>
+                            <div class="quotes"
+                                style="font-size: 12px; margin-top: 15px; color: rgba(255,255,255,0.7); max-width: 320px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                                Ambil tangkapan layar kartu kenangan di atas dan bagikan di Instagram Story Anda dengan
+                                menandai akun kami <strong>@galang</strong> & <strong>@dini</strong>! ✨
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
                 <!-- Section 8 Form input ucapan & list ucapan di bawahnya, data ucapan dari tamu undangan bisa sangat bayak, jika lebih dari 8 ucapan maka selebihnya bisa diakses via scroll kotak ucapannya -->
                 <!-- Section 8 Form input ucapan & list ucapan di bawahnya -->
                 <section id="wishes" class="section-wishes" data-menu-label="Doa & Ucapan"
@@ -877,7 +939,8 @@
 
                     <!-- Bottom Right: Music & QR -->
                     <div class="bottom-controls">
-                        <button id="btn-scroll-up" class="floating-btn btn-scroll-up" style="display: none; outline: none;">
+                        <button id="btn-scroll-up" class="floating-btn btn-scroll-up"
+                            style="display: none; outline: none;">
                             <span uk-icon="icon: chevron-up; ratio: 1.2"></span>
                         </button>
                         <button id="btn-show-qr" class="floating-btn btn-qr" uk-toggle="target: #qr-modal">
@@ -941,6 +1004,8 @@
                                 <li><a href="#schedule" uk-scroll uk-toggle="target: #menu-modal">Waktu & Tempat</a>
                                 </li>
                                 <li><a href="#gallery" uk-scroll uk-toggle="target: #menu-modal">Gallery</a></li>
+                                <li><a href="#happiness" uk-scroll uk-toggle="target: #menu-modal">Berbagi
+                                        Kebahagiaan</a></li>
                                 <li><a href="#wishes" uk-scroll uk-toggle="target: #menu-modal">Ucapan & Doa</a></li>
                                 <li><a href="#gift" uk-scroll uk-toggle="target: #menu-modal">Amplop & Gift</a></li>
                             </ul>
